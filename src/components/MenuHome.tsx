@@ -70,7 +70,7 @@ export function MenuHome({ onViewAll }: MenuHomeProps) {
         </motion.div>
 
         {/* قائمة الأطباق */}
-        <div className="space-y-12 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           {featuredMenuData.map((section, sectionIndex) => (
             <motion.div
               key={section.category}
@@ -78,7 +78,7 @@ export function MenuHome({ onViewAll }: MenuHomeProps) {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: sectionIndex * 0.1 }}
               viewport={{ once: true }}
-              className="bg-white rounded-2xl shadow-xl overflow-hidden"
+              className="bg-white rounded-2xl shadow-xl overflow-hidden h-full flex flex-col"
             >
               {/* شريط الألوان */}
               <div className="flex h-2">
@@ -89,17 +89,17 @@ export function MenuHome({ onViewAll }: MenuHomeProps) {
 
               {/* رأس القسم */}
               <div className="bg-gradient-to-r from-red-700 to-black p-6">
-                <h3 className="text-white text-4xl flex items-center gap-4">
+                <h3 className="text-white text-3xl flex flex-col items-center gap-2 text-center">
                   <span className="text-5xl">{section.emoji}</span>
                   <div>
                     <div>{section.category}</div>
-                    <div className="text-sm text-red-200">{section.categoryEn}</div>
+                    <div className="text-xs text-red-200 mt-1">{section.categoryEn}</div>
                   </div>
                 </h3>
               </div>
 
               {/* الأطباق */}
-              <div className="p-8 space-y-4">
+              <div className="p-6 space-y-3 flex-1">
                 {section.items.map((item, itemIndex) => (
                   <motion.div
                     key={item.name}
@@ -107,18 +107,18 @@ export function MenuHome({ onViewAll }: MenuHomeProps) {
                     whileInView={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.4, delay: itemIndex * 0.05 }}
                     viewport={{ once: true }}
-                    className="p-6 pb-7 rounded-lg border-r-4 border-red-700 bg-red-50/30 hover:bg-red-100/50 transition-all"
+                    className="p-4 pb-5 rounded-lg border-r-4 border-red-700 bg-red-50/30 hover:bg-red-100/50 transition-all"
                   >
-                    <div className="flex justify-between items-start gap-4">
-                      <div className="flex-1">
-                        <h4 className="text-gray-800 text-lg mb-2 leading-loose pb-1">{item.name}</h4>
-                        {item.desc && (
-                          <p className="text-sm text-gray-600 leading-loose pb-1">{item.desc}</p>
-                        )}
+                    <div className="flex flex-col gap-2">
+                      <div className="flex justify-between items-start gap-2">
+                        <h4 className="text-gray-800 text-base leading-loose pb-1 flex-1">{item.name}</h4>
+                        <span className="text-red-700 text-base whitespace-nowrap leading-loose pb-1">
+                          {item.price} ر.س
+                        </span>
                       </div>
-                      <span className="text-red-700 text-lg whitespace-nowrap leading-loose pb-1">
-                        {item.price} ريال
-                      </span>
+                      {item.desc && (
+                        <p className="text-xs text-gray-600 leading-loose pb-1">{item.desc}</p>
+                      )}
                     </div>
                   </motion.div>
                 ))}
