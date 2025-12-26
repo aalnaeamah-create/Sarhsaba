@@ -99,11 +99,6 @@ export function Menu() {
       <div className="container mx-auto px-4">
         {/* العنوان */}
         <div className="text-center mb-12">
-          <div className="inline-block mb-4">
-            <span className="bg-gradient-to-r from-red-700 via-red-600 to-black text-white px-8 py-3 rounded-full">
-              قائمتنا المميزة
-            </span>
-          </div>
           <h2 className="text-5xl mb-6 bg-gradient-to-r from-red-700 via-black to-red-700 bg-clip-text text-transparent leading-tight pb-2">
             قائمة الأطباق اليمنية
           </h2>

@@ -30,7 +30,7 @@ export function Hero({ heroImage }: HeroProps) {
   }, [bannerImages.length]);
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section id="home" className="relative h-screen flex items-center justify-center overflow-hidden">
       {/* Background with Parallax Effect and Slider */}
       <div className="absolute inset-0">
         <AnimatePresence mode="wait">
@@ -45,7 +45,7 @@ export function Hero({ heroImage }: HeroProps) {
             <img
               src={bannerImages[currentImageIndex]}
               alt={`مطعم صرح سبأ - صورة ${currentImageIndex + 1}`}
-              className="w-full h-full object-cover"
+              className="w-full h-full object-contain md:object-cover object-center"
             />
           </motion.div>
         </AnimatePresence>
@@ -64,7 +64,7 @@ export function Hero({ heroImage }: HeroProps) {
             repeat: Infinity,
             ease: "linear"
           }}
-          className="absolute top-20 right-20 w-32 h-32 border-4 border-red-700/30 rounded-full"
+          className="absolute top-10 md:top-20 right-10 md:right-20 w-20 h-20 md:w-32 md:h-32 border-2 md:border-4 border-red-700/30 rounded-full"
         />
         <motion.div
           animate={{ 
@@ -76,7 +76,7 @@ export function Hero({ heroImage }: HeroProps) {
             repeat: Infinity,
             ease: "linear"
           }}
-          className="absolute bottom-32 left-20 w-40 h-40 border-4 border-white/20 rounded-full"
+          className="absolute bottom-24 md:bottom-32 left-10 md:left-20 w-24 h-24 md:w-40 md:h-40 border-2 md:border-4 border-white/20 rounded-full"
         />
         
         {/* نقاط متلألئة */}
@@ -108,15 +108,15 @@ export function Hero({ heroImage }: HeroProps) {
       </div>
 
       {/* نقاط التنقل بين الصور */}
-      <div className="absolute bottom-24 left-1/2 transform -translate-x-1/2 flex gap-3 z-10">
+      <div className="absolute bottom-20 md:bottom-24 left-1/2 transform -translate-x-1/2 flex gap-2 md:gap-3 z-10">
         {bannerImages.map((_, index) => (
           <button
             key={index}
             onClick={() => setCurrentImageIndex(index)}
             className={`transition-all duration-300 rounded-full ${
               index === currentImageIndex 
-                ? 'w-12 h-3 bg-red-600' 
-                : 'w-3 h-3 bg-white/50 hover:bg-white/80'
+                ? 'w-8 md:w-12 h-2 md:h-3 bg-red-600' 
+                : 'w-2 md:w-3 h-2 md:h-3 bg-white/50 hover:bg-white/80'
             }`}
             aria-label={`الانتقال إلى الصورة ${index + 1}`}
           />
@@ -128,7 +128,7 @@ export function Hero({ heroImage }: HeroProps) {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.2, duration: 1 }}
-        className="absolute bottom-10 left-1/2 transform -translate-x-1/2 cursor-pointer"
+        className="absolute bottom-8 md:bottom-10 left-1/2 transform -translate-x-1/2 cursor-pointer hidden md:flex"
         onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
       >
         <div className="flex flex-col items-center gap-2 group">
