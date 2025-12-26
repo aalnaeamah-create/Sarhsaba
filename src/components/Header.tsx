@@ -1,7 +1,6 @@
 import { motion } from 'motion/react';
-import { Menu, X, Search, Home, Info, UtensilsCrossed, MapPin, Phone } from 'lucide-react';
+import { Menu, X, Search } from 'lucide-react';
 import { useState, useEffect } from 'react';
-import { Link, useNavigate, useLocation } from 'react-router-dom';
 import logo from 'figma:asset/6775a004a4f89ac27b8782135b366270ba0ccb49.png';
 import { SearchDialog } from './SearchDialog';
 
@@ -14,8 +13,6 @@ export function Header({ onNavigate, currentPage = 'home' }: HeaderProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
-  const navigate = useNavigate();
-  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -30,52 +27,53 @@ export function Header({ onNavigate, currentPage = 'home' }: HeaderProps) {
   }, []);
 
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    e.preventDefault();
-    setIsOpen(false);
-    
-    // إذا كان الرابط هو #branches، انتقل لصفحة الفروع
-    if (href === '#branches') {
-      navigate('/branches');
-      return;
-    }
-    
-    // إذا كان الرابط هو #menu، انتقل لصفحة قائمة الطعام
-    if (href === '#menu') {
-      navigate('/menu');
-      return;
-    }
-    
-    // إذا كان الرابط #home، ارجع للصفحة الرئيسية
-    if (href === '#home') {
-      navigate('/');
-      return;
-    }
-    
-    // للأقسام الأخرى (عن المطعم، تواصل معنا)
-    if (location.pathname !== '/') {
-      // إذا لم نكن في الصفحة الرئيسية، انتقل إليها أولاً
-      navigate('/');
-      setTimeout(() => {
+    if (onNavigate) {
+      e.preventDefault();
+      
+      // إذا كان الرابط هو #branches، انتقل لصفحة الفروع
+      if (href === '#branches') {
+        onNavigate('branches');
+        setIsOpen(false);
+        return;
+      }
+      
+      // إذا كان الرابط هو #menu، انتقل لصفحة قائمة الطعام
+      if (href === '#menu') {
+        onNavigate('menu');
+        setIsOpen(false);
+        return;
+      }
+      
+      // إذا كان الرابط #home أو أي قسم آخر، ارجع للصفحة الرئيسية
+      if (currentPage !== 'home') {
+        onNavigate('home');
+        setIsOpen(false);
+        // انتظر قليلاً ثم scroll للقسم المطلوب
+        setTimeout(() => {
+          if (href !== '#home') {
+            const element = document.querySelector(href);
+            if (element) {
+              element.scrollIntoView({ behavior: 'smooth' });
+            }
+          }
+        }, 100);
+      } else {
+        // إذا كنا في الصفحة الرئيسية، فقط scroll للقسم
+        setIsOpen(false);
         const element = document.querySelector(href);
         if (element) {
           element.scrollIntoView({ behavior: 'smooth' });
         }
-      }, 100);
-    } else {
-      // إذا كنا في الصفحة الرئيسية، فقط scroll للقسم
-      const element = document.querySelector(href);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
       }
     }
   };
 
   const menuItems = [
-    { name: 'الرئيسية', href: '#home', icon: Home, color: 'from-red-700 to-red-900' },
-    { name: 'عن المطعم', href: '#about', icon: Info, color: 'from-gray-700 to-gray-900' },
-    { name: 'قائمة الطعام', href: '#menu', icon: UtensilsCrossed, color: 'from-red-700 to-red-900' },
-    { name: 'الفروع', href: '#branches', icon: MapPin, color: 'from-black to-gray-900' },
-    { name: 'تواصل معنا', href: '#contact', icon: Phone, color: 'from-gray-700 to-gray-900' }
+    { name: 'الرئيسية', href: '#home' },
+    { name: 'عن المطعم', href: '#about' },
+    { name: 'قائمة الطعام', href: '#menu' },
+    { name: 'الفروع', href: '#branches' },
+    { name: 'تواصل معنا', href: '#contact' }
   ];
 
   return (
@@ -117,32 +115,31 @@ export function Header({ onNavigate, currentPage = 'home' }: HeaderProps) {
           transition={{ duration: 0.3 }}
         >
           {/* Logo */}
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            className="cursor-pointer"
-            onClick={() => navigate('/')}
+          <motion.a
+            href="#home"
+            onClick={(e) => handleClick(e, '#home')}
+            initial={{ opacity: 0 }}
+            animate={{ 
+              opacity: 1,
+              scale: scrolled ? 0.85 : 1
+            }}
+            transition={{ 
+              opacity: { delay: 0.2 },
+              scale: { duration: 0.3 }
+            }}
+            whileHover={{ scale: scrolled ? 0.9 : 1.05 }}
+            className="flex items-center relative z-10"
           >
             <motion.img 
               src={logo} 
               alt="صرح سبأ" 
-              className="object-contain"
-              animate={{
-                width: scrolled ? '56px' : '80px',
-                height: scrolled ? '56px' : '80px'
+              className="w-auto object-contain"
+              animate={{ 
+                height: scrolled ? '60px' : '80px'
               }}
               transition={{ duration: 0.3 }}
-              whileHover={{ scale: 1.1, rotate: 5 }}
             />
-          </motion.div>
-
-          {/* Mobile Search Icon - Left Side */}
-          <button
-            onClick={() => setIsSearchOpen(true)}
-            className="md:hidden text-gray-800 hover:text-red-700 transition-colors p-2 rounded-lg hover:bg-red-50"
-          >
-            <Search size={24} />
-          </button>
+          </motion.a>
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center gap-8">
@@ -168,7 +165,49 @@ export function Header({ onNavigate, currentPage = 'home' }: HeaderProps) {
               <Search size={24} />
             </button>
           </div>
+
+          {/* Mobile Menu Button */}
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="md:hidden text-gray-800 hover:text-red-700 transition-colors p-2 rounded-lg hover:bg-red-50"
+          >
+            {isOpen ? <X size={28} /> : <Menu size={28} />}
+          </button>
         </motion.div>
+
+        {/* Mobile Menu */}
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            className="md:hidden mt-4 bg-gradient-to-b from-red-700 via-red-800 to-black rounded-lg overflow-hidden shadow-2xl"
+          >
+            {menuItems.map((item, index) => (
+              <motion.a
+                key={item.name}
+                href={item.href}
+                onClick={(e) => handleClick(e, item.href)}
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.1 * index }}
+                className="block px-6 py-4 text-white hover:bg-white/20 transition-colors border-b border-white/10 last:border-b-0 text-lg cursor-pointer"
+              >
+                {item.name}
+              </motion.a>
+            ))}
+            <button
+              onClick={() => {
+                setIsSearchOpen(true);
+                setIsOpen(false);
+              }}
+              className="w-full flex items-center gap-3 px-6 py-4 text-white hover:bg-white/20 transition-colors text-lg"
+            >
+              <Search size={24} />
+              <span>البحث</span>
+            </button>
+          </motion.div>
+        )}
       </nav>
       
       {/* شريط سفلي */}
