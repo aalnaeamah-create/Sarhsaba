@@ -3,7 +3,7 @@ import { MapPin, Phone, Clock, Navigation } from 'lucide-react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 
 export function Branches() {
-  // تنظيم الفروع حسب المدن - 22 فرع في 9 مدن
+  // تنظيم الفروع حسب المدن - 25 فرعاً في 13 مدينة
   const branchesByCity = [
     {
       city: 'الرياض',
@@ -12,71 +12,41 @@ export function Branches() {
           id: 1,
           name: 'فرع بارك أفينيو',
           mallName: 'بارك أفينيو',
-          address: 'بارك أفينيو، الرياض',
+          address: 'بارك أفينيو، قرطبة، الرياض 13248',
           phone: '+966 54 844 5421',
           hours: 'السبت الى الخميس: 8:00 صباحاً حتى 1:00 صباحاً | الجمعة: 1:00 ظهراً حتى 1:00 صباحاً',
-          mapLink: '#',
+          mapLink: 'https://maps.app.goo.gl/GRWKXssxueovXUocA',
           image: 'https://lh3.googleusercontent.com/d/1xOuHJN0SKmfGrGcqNy3WodPKDMwGMgWd'
         },
         {
           id: 2,
           name: 'فرع حياة مول',
           mallName: 'حياة مول',
-          address: 'حياة مول، الرياض',
+          address: 'حياة مول، طريق الملك عبدالعزيز، الرياض 13341',
           phone: '+966 54 844 5421',
           hours: 'السبت الى الخميس: 8:00 صباحاً حتى 1:00 صباحاً | الجمعة: 1:00 ظهراً حتى 1:00 صباحاً',
-          mapLink: '#',
+          mapLink: 'https://maps.app.goo.gl/mcEAif6dVmhMLKxw6',
           image: 'https://lh3.googleusercontent.com/d/1oNAeZsg58pTz77FdKy7LrM039VQGb-8d'
         },
         {
           id: 3,
-          name: 'فرع القصر مول',
-          mallName: 'القصر مول',
-          address: 'القصر مول، الرياض',
+          name: 'فرع غرناطة مول',
+          mallName: 'غرناطة مول',
+          address: 'غرناطة مول، غرناطة، الرياض 13241',
           phone: '+966 54 844 5421',
           hours: 'السبت الى الخميس: 8:00 صباحاً حتى 1:00 صباحاً | الجمعة: 1:00 ظهراً حتى 1:00 صباحاً',
-          mapLink: '#',
-          image: 'https://lh3.googleusercontent.com/d/1xdp_PecYsIhSWcSs1Ldzx36KYE2uo-6x'
+          mapLink: 'https://maps.app.goo.gl/4zXyCG5JHkA7onjd6',
+          image: 'https://lh3.googleusercontent.com/d/1yEe1VFu3x1CK4C2Zaow3KS4U86nshE0n'
         },
         {
           id: 4,
-          name: 'فرع غرناطة مول',
-          mallName: 'غرناطة مول',
-          address: 'غرناطة مول، الرياض',
+          name: 'فرع القصر مول',
+          mallName: 'القصر مول',
+          address: 'القصر مول، السويدي، الرياض 12791',
           phone: '+966 54 844 5421',
           hours: 'السبت الى الخميس: 8:00 صباحاً حتى 1:00 صباحاً | الجمعة: 1:00 ظهراً حتى 1:00 صباحاً',
-          mapLink: '#',
-          image: 'https://lh3.googleusercontent.com/d/1yEe1VFu3x1CK4C2Zaow3KS4U86nshE0n'
-        }
-      ]
-    },
-    {
-      city: 'تبوك',
-      branches: [
-        {
-          id: 5,
-          name: 'فرع تبوك بارك',
-          mallName: 'تبوك بارك',
-          address: 'تبوك بارك، تبوك',
-          phone: '+966 54 844 5421',
-          hours: 'السبت الى الخميس: 8:00 صباحاً حتى 1:00 صباحاً | الجمعة: 1:00 ظهراً حتى 1:00 صباحاً',
-          mapLink: '#',
-          image: 'https://lh3.googleusercontent.com/d/1USfJg1xiyKnJMjst_ArlldZq2HQEAMEz'
-        }
-      ]
-    },
-    {
-      city: 'المدينة المنورة',
-      branches: [
-        {
-          id: 6,
-          name: 'فرع الراشد ميغا مول',
-          mallName: 'الراشد ميغا مول',
-          address: 'الراشد ميغا مول، المدينة المنورة',
-          phone: '+966 54 844 5421',
-          hours: 'السبت الى الخميس: 8:00 صباحاً حتى 1:00 صباحاً | الجمعة: 1:00 ظهراً حتى 1:00 صباحاً',
-          mapLink: 'https://maps.app.goo.gl/E16sMsWZhTFMCXUx8',
-          image: 'https://lh3.googleusercontent.com/d/1-uZ5dviPOQ7ilvP97-WWyY4ThJDOMc30'
+          mapLink: 'https://maps.app.goo.gl/hdRkHW2mtkCyxhMq8',
+          image: 'https://lh3.googleusercontent.com/d/1xdp_PecYsIhSWcSs1Ldzx36KYE2uo-6x'
         }
       ]
     },
@@ -84,24 +54,79 @@ export function Branches() {
       city: 'جدة',
       branches: [
         {
-          id: 9,
-          name: 'فرع جدة بارك',
-          mallName: 'جدة بارك',
-          address: 'جدة بارك، جدة',
+          id: 5,
+          name: 'فرع ذا فليج مول',
+          mallName: 'ذا فليج مول',
+          address: 'ذا فليج مول، طريق الأمير طلال بن منصور، جدة 23738',
           phone: '+966 54 844 5421',
           hours: 'السبت الى الخميس: 8:00 صباحاً حتى 1:00 صباحاً | الجمعة: 1:00 ظهراً حتى 1:00 صباحاً',
-          mapLink: 'https://maps.app.goo.gl/3LTeqgurG2BS7n9G9',
+          mapLink: 'https://maps.app.goo.gl/NZ6Se1rNAoaPCrU96',
           image: 'https://lh3.googleusercontent.com/d/1USfJg1xiyKnJMjst_ArlldZq2HQEAMEz'
         },
         {
-          id: 10,
-          name: 'فرع الأندلس مول',
-          mallName: 'الأندلس مول',
-          address: 'الأندلس مول، جدة',
+          id: 6,
+          name: 'فرع جدة بارك',
+          mallName: 'جدة بارك',
+          address: 'جدة بارك، العزيزية، جدة 23334',
           phone: '+966 54 844 5421',
           hours: 'السبت الى الخميس: 8:00 صباحاً حتى 1:00 صباحاً | الجمعة: 1:00 ظهراً حتى 1:00 صباحاً',
-          mapLink: 'https://maps.app.goo.gl/RaiosPvqGoZYsFQF7',
+          mapLink: 'https://maps.app.goo.gl/t6h46NFzfbFxFy8q9',
           image: 'https://lh3.googleusercontent.com/d/1-uZ5dviPOQ7ilvP97-WWyY4ThJDOMc30'
+        },
+        {
+          id: 7,
+          name: 'فرع الأندلس مول',
+          mallName: 'الأندلس مول',
+          address: 'الأندلس مول، حي الفيحاء، طريق الأمير ماجد، جدة 22245',
+          phone: '+966 54 844 5421',
+          hours: 'السبت الى الخميس: 8:00 صباحاً حتى 1:00 صباحاً | الجمعة: 1:00 ظهراً حتى 1:00 صباحاً',
+          mapLink: 'https://maps.app.goo.gl/uxZuFanfs7R4VpZb6',
+          image: 'https://lh3.googleusercontent.com/d/1xOuHJN0SKmfGrGcqNy3WodPKDMwGMgWd'
+        }
+      ]
+    },
+    {
+      city: 'الدمام',
+      branches: [
+        {
+          id: 8,
+          name: 'فرع النخيل مول',
+          mallName: 'النخيل مول',
+          address: 'النخيل مول، الدمام 32272',
+          phone: '+966 54 844 5421',
+          hours: 'السبت الى الخميس: 8:00 صباحاً حتى 1:00 صباحاً | الجمعة: 1:00 ظهراً حتى 1:00 صباحاً',
+          mapLink: 'https://maps.app.goo.gl/yVNpouQBD9xWdTwg6',
+          image: 'https://lh3.googleusercontent.com/d/1oNAeZsg58pTz77FdKy7LrM039VQGb-8d'
+        }
+      ]
+    },
+    {
+      city: 'الخبر',
+      branches: [
+        {
+          id: 9,
+          name: 'فرع الشبيلي جراند مول',
+          mallName: 'الشبيلي جراند مول',
+          address: 'الشبيلي جراند مول، الحمراء، الخبر 34628',
+          phone: '+966 54 844 5421',
+          hours: 'السبت الى الخميس: 8:00 صباحاً حتى 1:00 صباحاً | الجمعة: 1:00 ظهراً حتى 1:00 صباحاً',
+          mapLink: 'https://maps.app.goo.gl/bgFWGdKZVHsvfHbF8',
+          image: 'https://lh3.googleusercontent.com/d/1xdp_PecYsIhSWcSs1Ldzx36KYE2uo-6x'
+        }
+      ]
+    },
+    {
+      city: 'تبوك',
+      branches: [
+        {
+          id: 10,
+          name: 'فرع تبوك بارك',
+          mallName: 'تبوك بارك',
+          address: 'تبوك بارك، طريق الملك فيصل، مروج الأمير، تبوك 47315',
+          phone: '+966 54 844 5421',
+          hours: 'السبت الى الخميس: 8:00 صباحاً حتى 1:00 صباحاً | الجمعة: 1:00 ظهراً حتى 1:00 صباحاً',
+          mapLink: 'https://maps.app.goo.gl/VqE26wGvqJnyQgQ77',
+          image: 'https://lh3.googleusercontent.com/d/1yEe1VFu3x1CK4C2Zaow3KS4U86nshE0n'
         }
       ]
     },
@@ -112,31 +137,21 @@ export function Branches() {
           id: 11,
           name: 'فرع مكة مول',
           mallName: 'مكة مول',
-          address: 'مكة مول، مكة المكرمة',
+          address: 'مكة مول، طريق الملك عبدالله، مكة المكرمة 24246',
           phone: '+966 54 844 5421',
           hours: 'السبت الى الخميس: 8:00 صباحاً حتى 1:00 صباحاً | الجمعة: 1:00 ظهراً حتى 1:00 صباحاً',
-          mapLink: 'https://maps.app.goo.gl/oRifyNLVoQuPb6z99',
-          image: 'https://lh3.googleusercontent.com/d/1xOuHJN0SKmfGrGcqNy3WodPKDMwGMgWd'
+          mapLink: 'https://maps.app.goo.gl/A2aG5j9twGdiv5hd8',
+          image: 'https://lh3.googleusercontent.com/d/1USfJg1xiyKnJMjst_ArlldZq2HQEAMEz'
         },
         {
           id: 12,
-          name: 'فرع الهدا بارك',
-          mallName: 'الهدا بارك',
-          address: 'الهدا بارك، مكة المكرمة',
+          name: 'فرع الهدى بارك',
+          mallName: 'الهدى بارك',
+          address: 'الهدى بارك، الهدى، مكة المكرمة 24355',
           phone: '+966 54 844 5421',
           hours: 'السبت الى الخميس: 8:00 صباحاً حتى 1:00 صباحاً | الجمعة: 1:00 ظهراً حتى 1:00 صباحاً',
-          mapLink: '#',
-          image: 'https://lh3.googleusercontent.com/d/1oNAeZsg58pTz77FdKy7LrM039VQGb-8d'
-        },
-        {
-          id: 13,
-          name: 'فرع المسار مول',
-          mallName: 'المسار مول',
-          address: 'المسار مول، مكة المكرمة',
-          phone: '+966 54 844 5421',
-          hours: 'السبت الى الخميس: 8:00 صباحاً حتى 1:00 صباحاً | الجمعة: 1:00 ظهراً حتى 1:00 صباحاً',
-          mapLink: '#',
-          image: 'https://lh3.googleusercontent.com/d/1xdp_PecYsIhSWcSs1Ldzx36KYE2uo-6x'
+          mapLink: 'https://maps.app.goo.gl/ZbepJ3qMwvMmJtE5A',
+          image: 'https://lh3.googleusercontent.com/d/1-uZ5dviPOQ7ilvP97-WWyY4ThJDOMc30'
         }
       ]
     },
@@ -144,24 +159,14 @@ export function Branches() {
       city: 'خميس مشيط',
       branches: [
         {
-          id: 14,
+          id: 13,
           name: 'فرع موجان بارك',
           mallName: 'موجان بارك',
-          address: 'موجان بارك، خميس مشيط',
+          address: 'موجان بارك، النزهة، خميس مشيط 62465',
           phone: '+966 54 844 5421',
           hours: 'السبت الى الخميس: 8:00 صباحاً حتى 1:00 صباحاً | الجمعة: 1:00 ظهراً حتى 1:00 صباحاً',
-          mapLink: '#',
-          image: 'https://lh3.googleusercontent.com/d/1yEe1VFu3x1CK4C2Zaow3KS4U86nshE0n'
-        },
-        {
-          id: 15,
-          name: 'فرع قربان المكان مول',
-          mallName: 'قربان المكان مول',
-          address: 'قربان المكان مول، خميس مشيط',
-          phone: '+966 54 844 5421',
-          hours: 'السبت الى الخميس: 8:00 صباحاً حتى 1:00 صباحاً | الجمعة: 1:00 ظهراً حتى 1:00 صباحاً',
-          mapLink: '#',
-          image: 'https://lh3.googleusercontent.com/d/1USfJg1xiyKnJMjst_ArlldZq2HQEAMEz'
+          mapLink: 'https://maps.app.goo.gl/Ej4ATHz44UiNnWcG9',
+          image: 'https://lh3.googleusercontent.com/d/1xOuHJN0SKmfGrGcqNy3WodPKDMwGMgWd'
         }
       ]
     },
@@ -169,14 +174,24 @@ export function Branches() {
       city: 'أبها',
       branches: [
         {
-          id: 16,
+          id: 14,
           name: 'فرع الراشد مول',
           mallName: 'الراشد مول',
-          address: 'الراشد مول، أبها',
+          address: 'الراشد مول، طريق الملك فهد، البديع، أبها 62581',
           phone: '+966 54 844 5421',
           hours: 'السبت الى الخميس: 8:00 صباحاً حتى 1:00 صباحاً | الجمعة: 1:00 ظهراً حتى 1:00 صباحاً',
-          mapLink: '#',
-          image: 'https://lh3.googleusercontent.com/d/1-uZ5dviPOQ7ilvP97-WWyY4ThJDOMc30'
+          mapLink: 'https://maps.app.goo.gl/cQq2ahRxtY4NL6b26',
+          image: 'https://lh3.googleusercontent.com/d/1oNAeZsg58pTz77FdKy7LrM039VQGb-8d'
+        },
+        {
+          id: 15,
+          name: 'فرع لافندا بارك',
+          mallName: 'لافندا بارك',
+          address: 'لافندا بارك، طريق الملك فهد، أبها 62583',
+          phone: '+966 54 844 5421',
+          hours: 'السبت الى الخميس: 8:00 صباحاً حتى 1:00 صباحاً | الجمعة: 1:00 ظهراً حتى 1:00 صباحاً',
+          mapLink: 'https://maps.app.goo.gl/JQSSCpzQG4oZQqj28',
+          image: 'https://lh3.googleusercontent.com/d/1xdp_PecYsIhSWcSs1Ldzx36KYE2uo-6x'
         }
       ]
     },
@@ -184,24 +199,24 @@ export function Branches() {
       city: 'جازان',
       branches: [
         {
-          id: 17,
+          id: 16,
           name: 'فرع كادي مول',
           mallName: 'كادي مول',
-          address: 'كادي مول، جازان',
+          address: 'كادي مول، طريق الكورنيش، جازان 82725',
           phone: '+966 54 844 5421',
           hours: 'السبت الى الخميس: 8:00 صباحاً حتى 1:00 صباحاً | الجمعة: 1:00 ظهراً حتى 1:00 صباحاً',
-          mapLink: '#',
-          image: 'https://lh3.googleusercontent.com/d/1xOuHJN0SKmfGrGcqNy3WodPKDMwGMgWd'
+          mapLink: 'https://maps.app.goo.gl/Lkyt2hSvALoHRHNb7',
+          image: 'https://lh3.googleusercontent.com/d/1yEe1VFu3x1CK4C2Zaow3KS4U86nshE0n'
         },
         {
-          id: 18,
-          name: 'فرع الراشد ميغا مول',
-          mallName: 'الراشد ميغا مول',
-          address: 'الراشد ميغا مول، جازان',
+          id: 17,
+          name: 'فرع الراشد مول',
+          mallName: 'الراشد مول',
+          address: 'الراشد مول، الشاطئ، جازان 82723',
           phone: '+966 54 844 5421',
           hours: 'السبت الى الخميس: 8:00 صباحاً حتى 1:00 صباحاً | الجمعة: 1:00 ظهراً حتى 1:00 صباحاً',
-          mapLink: '#',
-          image: 'https://lh3.googleusercontent.com/d/1oNAeZsg58pTz77FdKy7LrM039VQGb-8d'
+          mapLink: 'https://maps.app.goo.gl/K4h3gtXkzfiErZu29',
+          image: 'https://lh3.googleusercontent.com/d/1USfJg1xiyKnJMjst_ArlldZq2HQEAMEz'
         }
       ]
     },
@@ -209,24 +224,104 @@ export function Branches() {
       city: 'نجران',
       branches: [
         {
-          id: 19,
+          id: 18,
           name: 'فرع نجران بارك',
           mallName: 'نجران بارك',
-          address: 'نجران بارك، نجران',
+          address: 'نجران بارك، حي الخالدية، نجران 66261',
           phone: '+966 54 844 5421',
           hours: 'السبت الى الخميس: 8:00 صباحاً حتى 1:00 صباحاً | الجمعة: 1:00 ظهراً حتى 1:00 صباحاً',
-          mapLink: '#',
+          mapLink: 'https://maps.app.goo.gl/2ei6QGvnKLHRb6qg6',
+          image: 'https://lh3.googleusercontent.com/d/1-uZ5dviPOQ7ilvP97-WWyY4ThJDOMc30'
+        },
+        {
+          id: 19,
+          name: 'فرع واجهة نجران',
+          mallName: 'واجهة نجران',
+          address: 'واجهة نجران، حي النهضة، نجران 66218',
+          phone: '+966 54 844 5421',
+          hours: 'السبت الى الخميس: 8:00 صباحاً حتى 1:00 صباحاً | الجمعة: 1:00 ظهراً حتى 1:00 صباحاً',
+          mapLink: 'https://maps.app.goo.gl/hWRUDQ7tCaoCq7R47',
+          image: 'https://lh3.googleusercontent.com/d/1xOuHJN0SKmfGrGcqNy3WodPKDMwGMgWd'
+        }
+      ]
+    },
+    {
+      city: 'الطائف',
+      branches: [
+        {
+          id: 20,
+          name: 'فرع ذا بارك',
+          mallName: 'ذا بارك',
+          address: 'ذا بارك، حي سلطانة، الطائف 26575',
+          phone: '+966 54 844 5421',
+          hours: 'السبت الى الخميس: 8:00 صباحاً حتى 1:00 صباحاً | الجمعة: 1:00 ظهراً حتى 1:00 صباحاً',
+          mapLink: 'https://maps.app.goo.gl/u5NddoyAznU1YKeQ8',
+          image: 'https://lh3.googleusercontent.com/d/1oNAeZsg58pTz77FdKy7LrM039VQGb-8d'
+        }
+      ]
+    },
+    {
+      city: 'المدينة المنورة',
+      branches: [
+        {
+          id: 21,
+          name: 'فرع الراشد ميغا مول',
+          mallName: 'الراشد ميغا مول',
+          address: 'الراشد ميغا مول، طريق الملك عبدالله، شظاه، المدينة المنورة 42361',
+          phone: '+966 54 844 5421',
+          hours: 'السبت الى الخميس: 8:00 صباحاً حتى 1:00 صباحاً | الجمعة: 1:00 ظهراً حتى 1:00 صباحاً',
+          mapLink: 'https://maps.app.goo.gl/ipPQ8yoWufW2Kq9a9',
           image: 'https://lh3.googleusercontent.com/d/1xdp_PecYsIhSWcSs1Ldzx36KYE2uo-6x'
         },
         {
-          id: 20,
-          name: 'فرع قربان واجهة نجران',
-          mallName: 'قربان واجهة نجران',
-          address: 'قربان وجهة نجران، نجران',
+          id: 22,
+          name: 'فرع النور مول',
+          mallName: 'النور مول',
+          address: 'النور مول، طريق الملك عبدالله الفرعي، العيون، المدينة المنورة 42331',
           phone: '+966 54 844 5421',
           hours: 'السبت الى الخميس: 8:00 صباحاً حتى 1:00 صباحاً | الجمعة: 1:00 ظهراً حتى 1:00 صباحاً',
-          mapLink: '#',
+          mapLink: 'https://maps.app.goo.gl/fNXpjyydPyCSzntm6',
           image: 'https://lh3.googleusercontent.com/d/1yEe1VFu3x1CK4C2Zaow3KS4U86nshE0n'
+        },
+        {
+          id: 23,
+          name: 'فرع ملتقى المدينة',
+          mallName: 'ملتقى المدينة',
+          address: 'ملتقى المدينة، المبعوث، المدينة المنورة 42362',
+          phone: '+966 54 844 5421',
+          hours: 'السبت الى الخميس: 8:00 صباحاً حتى 1:00 صباحاً | الجمعة: 1:00 ظهراً حتى 1:00 صباحاً',
+          mapLink: 'https://maps.app.goo.gl/f9JK4qmBmwYiKjbw5',
+          image: 'https://lh3.googleusercontent.com/d/1USfJg1xiyKnJMjst_ArlldZq2HQEAMEz'
+        }
+      ]
+    },
+    {
+      city: 'الأحساء',
+      branches: [
+        {
+          id: 24,
+          name: 'فرع الأحساء مول',
+          mallName: 'الأحساء مول',
+          address: 'الأحساء مول، طريق الملك عبدالله، غرناطة، الهفوف 36441',
+          phone: '+966 54 844 5421',
+          hours: 'السبت الى الخميس: 8:00 صباحاً حتى 1:00 صباحاً | الجمعة: 1:00 ظهراً حتى 1:00 صباحاً',
+          mapLink: 'https://maps.app.goo.gl/5DqyD2qak6aQqXUP7',
+          image: 'https://lh3.googleusercontent.com/d/1-uZ5dviPOQ7ilvP97-WWyY4ThJDOMc30'
+        }
+      ]
+    },
+    {
+      city: 'الظهران',
+      branches: [
+        {
+          id: 25,
+          name: 'فرع الظهران مول',
+          mallName: 'الظهران مول',
+          address: 'الظهران مول، طريق الملك سعود بن عبدالعزيز، الظهران 34457',
+          phone: '+966 54 844 5421',
+          hours: 'السبت الى الخميس: 8:00 صباحاً حتى 1:00 صباحاً | الجمعة: 1:00 ظهراً حتى 1:00 صباحاً',
+          mapLink: 'https://maps.app.goo.gl/Uy12DeazvkDY21vf7',
+          image: 'https://lh3.googleusercontent.com/d/1xOuHJN0SKmfGrGcqNy3WodPKDMwGMgWd'
         }
       ]
     }
@@ -376,7 +471,7 @@ export function Branches() {
                     </div>
                   </div>
 
-                  {/* زر ��لموقع */}
+                  {/* زر لموقع */}
                   <motion.a
                     href={branch.mapLink}
                     target="_blank"

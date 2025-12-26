@@ -12,40 +12,40 @@ export function BranchesHome({ onViewAll }: BranchesHomeProps) {
       id: 1,
       name: 'فرع بارك أفينيو',
       mallName: 'بارك أفينيو',
-      address: 'بارك أفينيو، الرياض',
+      address: 'بارك أفينيو، قرطبة، الرياض 13248',
       phone: '+966 54 844 5421',
       hours: 'السبت الى الخميس: 8:00 صباحاً حتى 1:00 صباحاً | الجمعة: 1:00 ظهراً حتى 1:00 صباحاً',
-      mapLink: '#',
+      mapLink: 'https://maps.app.goo.gl/GRWKXssxueovXUocA',
       image: 'https://lh3.googleusercontent.com/d/1xOuHJN0SKmfGrGcqNy3WodPKDMwGMgWd'
     },
     {
       id: 2,
       name: 'فرع حياة مول',
       mallName: 'حياة مول',
-      address: 'حياة مول، الرياض',
+      address: 'حياة مول، طريق الملك عبدالعزيز، الرياض 13341',
       phone: '+966 54 844 5421',
       hours: 'السبت الى الخميس: 8:00 صباحاً حتى 1:00 صباحاً | الجمعة: 1:00 ظهراً حتى 1:00 صباحاً',
-      mapLink: '#',
+      mapLink: 'https://maps.app.goo.gl/mcEAif6dVmhMLKxw6',
       image: 'https://lh3.googleusercontent.com/d/1oNAeZsg58pTz77FdKy7LrM039VQGb-8d'
     },
     {
       id: 3,
       name: 'فرع القصر مول',
       mallName: 'القصر مول',
-      address: 'القصر مول، الرياض',
+      address: 'القصر مول، السويدي، الرياض 12791',
       phone: '+966 54 844 5421',
       hours: 'السبت الى الخميس: 8:00 صباحاً حتى 1:00 صباحاً | الجمعة: 1:00 ظهراً حتى 1:00 صباحاً',
-      mapLink: '#',
+      mapLink: 'https://maps.app.goo.gl/hdRkHW2mtkCyxhMq8',
       image: 'https://lh3.googleusercontent.com/d/1xdp_PecYsIhSWcSs1Ldzx36KYE2uo-6x'
     },
     {
       id: 4,
       name: 'فرع غرناطة مول',
       mallName: 'غرناطة مول',
-      address: 'غرناطة مول، الرياض',
+      address: 'غرناطة مول، غرناطة، الرياض 13241',
       phone: '+966 54 844 5421',
       hours: 'السبت الى الخميس: 8:00 صباحاً حتى 1:00 صباحاً | الجمعة: 1:00 ظهراً حتى 1:00 صباحاً',
-      mapLink: '#',
+      mapLink: 'https://maps.app.goo.gl/4zXyCG5JHkA7onjd6',
       image: 'https://lh3.googleusercontent.com/d/1yEe1VFu3x1CK4C2Zaow3KS4U86nshE0n'
     }
   ];
@@ -212,7 +212,7 @@ export function BranchesHome({ onViewAll }: BranchesHomeProps) {
             <ArrowLeft size={24} />
           </motion.button>
           <p className="text-gray-600 mt-4 text-sm">
-            لدينا 17 فرعاً في 9 مدن سعودية
+            لدينا 25 فرعاً في 13 مدينة سعودية
           </p>
         </motion.div>
       </div>
