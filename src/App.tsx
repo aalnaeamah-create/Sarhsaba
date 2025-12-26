@@ -1,6 +1,7 @@
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
 import { CookieConsent } from './components/CookieConsent';
+import { ScrollToTop } from './components/ScrollToTop';
 import { Home } from './pages/Home';
 import { AllBranchesPage } from './pages/AllBranchesPage';
 import { AllMenuPage } from './pages/AllMenuPage';
@@ -37,6 +38,7 @@ export default function App() {
       </main>
       <Footer />
       <CookieConsent />
+      <ScrollToTop />
     </div>
   );
 }

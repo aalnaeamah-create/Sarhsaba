@@ -1,25 +1,55 @@
-import { motion } from 'motion/react';
+import { motion, AnimatePresence } from 'motion/react';
 import { ChevronDown } from 'lucide-react';
+import { useState, useEffect } from 'react';
 
 interface HeroProps {
   heroImage: string;
 }
 
 export function Hero({ heroImage }: HeroProps) {
+  // صور البانر المتحركة من Google Drive
+  const bannerImages = [
+    'https://lh3.googleusercontent.com/d/15adTIxHRNfhmj0L0KpWiqkF8lktWUut4',
+    'https://lh3.googleusercontent.com/d/1xBA29Bu7qb7MWEwudZVkN8XU89xknBSz',
+    'https://lh3.googleusercontent.com/d/1ufngfZszGoCb56fLiACHGxX9Nume8jLA',
+    'https://lh3.googleusercontent.com/d/1tAwX-LXxuQ3KF4qlpy3ONjD8YP9OwGX4',
+    'https://lh3.googleusercontent.com/d/16ivL1HJ8yx8ZgZZ2C-ljK8mJMZKZy15m'
+  ];
+
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  // تغيير الصورة تلقائياً كل 5 ثوانٍ
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => 
+        prevIndex === bannerImages.length - 1 ? 0 : prevIndex + 1
+      );
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [bannerImages.length]);
+
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background with Parallax Effect */}
-      <motion.div 
-        initial={{ scale: 1.1 }}
-        animate={{ scale: 1 }}
-        transition={{ duration: 1.5 }}
-        className="absolute inset-0"
-      >
-        <img
-          src={heroImage}
-          alt="مطعم صرح سبأ"
-          className="w-full h-full object-cover"
-        />
+      {/* Background with Parallax Effect and Slider */}
+      <div className="absolute inset-0">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={currentImageIndex}
+            initial={{ opacity: 0, scale: 1.1 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.95 }}
+            transition={{ duration: 1.5 }}
+            className="absolute inset-0"
+          >
+            <img
+              src={bannerImages[currentImageIndex]}
+              alt={`مطعم صرح سبأ - صورة ${currentImageIndex + 1}`}
+              className="w-full h-full object-cover"
+            />
+          </motion.div>
+        </AnimatePresence>
+        
         {/* تدرج لوني بألوان العلم اليمني */}
         <div className="absolute inset-0 bg-gradient-to-br from-red-700/80 via-black/60 to-black/90" />
         
@@ -69,12 +99,28 @@ export function Hero({ heroImage }: HeroProps) {
             }}
           />
         ))}
-      </motion.div>
+      </div>
 
       {/* Decorative Frame */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-red-700 via-white to-black opacity-80" />
         <div className="absolute bottom-0 left-0 right-0 h-2 bg-gradient-to-r from-black via-white to-red-700 opacity-80" />
+      </div>
+
+      {/* نقاط التنقل بين الصور */}
+      <div className="absolute bottom-24 left-1/2 transform -translate-x-1/2 flex gap-3 z-10">
+        {bannerImages.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => setCurrentImageIndex(index)}
+            className={`transition-all duration-300 rounded-full ${
+              index === currentImageIndex 
+                ? 'w-12 h-3 bg-red-600' 
+                : 'w-3 h-3 bg-white/50 hover:bg-white/80'
+            }`}
+            aria-label={`الانتقال إلى الصورة ${index + 1}`}
+          />
+        ))}
       </div>
 
       {/* Scroll Indicator - محسّن */}

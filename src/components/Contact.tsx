@@ -98,7 +98,12 @@ export function Contact() {
               </motion.div>
               
               <h3 className="text-gray-800 mb-3 text-xl">{item.title}</h3>
-              <p className="text-gray-600 text-sm leading-relaxed">{item.info}</p>
+              <p 
+                className="text-gray-600 text-sm leading-relaxed"
+                dir={item.icon === Phone ? 'ltr' : undefined}
+              >
+                {item.info}
+              </p>
               
               {/* زخارف جانبية */}
               <div className="absolute -top-1 -right-1 w-8 h-8 border-t-2 border-r-2 border-red-700 rounded-tr-xl opacity-0 group-hover:opacity-100 transition-opacity" />

@@ -1,7 +1,8 @@
 import { motion } from 'motion/react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Search } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import logo from 'figma:asset/6775a004a4f89ac27b8782135b366270ba0ccb49.png';
+import { SearchDialog } from './SearchDialog';
 
 interface HeaderProps {
   onNavigate?: (page: string) => void;
@@ -11,6 +12,7 @@ interface HeaderProps {
 export function Header({ onNavigate, currentPage = 'home' }: HeaderProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -156,6 +158,12 @@ export function Header({ onNavigate, currentPage = 'home' }: HeaderProps) {
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-red-700 to-black group-hover:w-full transition-all duration-300" />
               </motion.a>
             ))}
+            <button
+              onClick={() => setIsSearchOpen(true)}
+              className="text-gray-800 hover:text-red-700 transition-colors relative group text-lg cursor-pointer p-2 hover:bg-red-50 rounded-lg"
+            >
+              <Search size={24} />
+            </button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -188,12 +196,33 @@ export function Header({ onNavigate, currentPage = 'home' }: HeaderProps) {
                 {item.name}
               </motion.a>
             ))}
+            <button
+              onClick={() => {
+                setIsSearchOpen(true);
+                setIsOpen(false);
+              }}
+              className="w-full flex items-center gap-3 px-6 py-4 text-white hover:bg-white/20 transition-colors text-lg"
+            >
+              <Search size={24} />
+              <span>البحث</span>
+            </button>
           </motion.div>
         )}
       </nav>
       
       {/* شريط سفلي */}
       <div className="h-1 bg-gradient-to-r from-red-700 via-white to-black opacity-20" />
+
+      {/* Search Dialog */}
+      <SearchDialog 
+        isOpen={isSearchOpen} 
+        onClose={() => setIsSearchOpen(false)}
+        onNavigate={(page) => {
+          if (onNavigate) {
+            onNavigate(page);
+          }
+        }}
+      />
     </motion.header>
   );
 }
