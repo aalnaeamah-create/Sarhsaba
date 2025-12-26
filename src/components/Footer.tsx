@@ -1,6 +1,6 @@
 import { motion } from 'motion/react';
 import { Facebook, Instagram, Twitter, MapPin, Phone, Mail } from 'lucide-react';
-import logo from 'figma:asset/6775a004a4f89ac27b8782135b366270ba0ccb49.png';
+import logo from 'figma:asset/fe584b35651f95e63f3418e4e13c3097e38311ce.png';
 
 export function Footer() {
   return (
@@ -25,16 +25,13 @@ export function Footer() {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <div className="flex items-start gap-4 mb-4">
-              <motion.img
-                src={logo}
-                alt="صرح سبأ"
-                className="h-16 w-auto object-contain brightness-0 invert flex-shrink-0"
-                whileHover={{ scale: 1.05 }}
-                transition={{ duration: 0.3 }}
-              />
-              <h3 className="text-2xl bg-gradient-to-r from-red-500 to-white bg-clip-text text-transparent">صرح سبأ</h3>
-            </div>
+            <motion.img
+              src={logo}
+              alt="صرح سبأ"
+              className="h-16 w-auto object-contain flex-shrink-0 mb-4"
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.3 }}
+            />
             <p className="text-gray-400 text-sm leading-loose mb-4">
               مطاعم صرح سبأ - سلسلة متخصصة في تقديم المأكولات اليمنية الأصيلة بجودة عالية وأسعار مناسبة
             </p>
@@ -53,13 +50,13 @@ export function Footer() {
           >
             <h3 className="mb-4 text-xl bg-gradient-to-r from-red-500 to-white bg-clip-text text-transparent">روابط سريعة</h3>
             <ul className="space-y-3">
-              {['الرئيسية', 'عن المطعم', 'قائمة الطعام', 'معرض الصور', 'تواصل معنا'].map((item, index) => (
+              {['الرئيسية', 'عن المطعم', 'قائمة الطعام', 'الفروع', 'تواصل معنا'].map((item, index) => (
                 <motion.li 
                   key={item}
                   whileHover={{ x: 8 }}
                 >
                   <a
-                    href={`#${['home', 'about', 'menu', 'gallery', 'contact'][index]}`}
+                    href={`#${['home', 'about', 'menu', 'branches', 'contact'][index]}`}
                     className="text-gray-400 hover:text-red-500 transition-colors text-sm flex items-center gap-3 group"
                   >
                     <span className="w-0 h-0.5 bg-gradient-to-r from-red-700 to-white group-hover:w-6 transition-all" />

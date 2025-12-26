@@ -3,7 +3,12 @@ import { Menu, X } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import logo from 'figma:asset/6775a004a4f89ac27b8782135b366270ba0ccb49.png';
 
-export function Header() {
+interface HeaderProps {
+  onNavigate?: (page: string) => void;
+  currentPage?: string;
+}
+
+export function Header({ onNavigate, currentPage = 'home' }: HeaderProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -19,12 +24,53 @@ export function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (onNavigate) {
+      e.preventDefault();
+      
+      // إذا كان الرابط هو #branches، انتقل لصفحة الفروع
+      if (href === '#branches') {
+        onNavigate('branches');
+        setIsOpen(false);
+        return;
+      }
+      
+      // إذا كان الرابط هو #menu، انتقل لصفحة قائمة الطعام
+      if (href === '#menu') {
+        onNavigate('menu');
+        setIsOpen(false);
+        return;
+      }
+      
+      // إذا كان الرابط #home أو أي قسم آخر، ارجع للصفحة الرئيسية
+      if (currentPage !== 'home') {
+        onNavigate('home');
+        setIsOpen(false);
+        // انتظر قليلاً ثم scroll للقسم المطلوب
+        setTimeout(() => {
+          if (href !== '#home') {
+            const element = document.querySelector(href);
+            if (element) {
+              element.scrollIntoView({ behavior: 'smooth' });
+            }
+          }
+        }, 100);
+      } else {
+        // إذا كنا في الصفحة الرئيسية، فقط scroll للقسم
+        setIsOpen(false);
+        const element = document.querySelector(href);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+    }
+  };
+
   const menuItems = [
     { name: 'الرئيسية', href: '#home' },
     { name: 'عن المطعم', href: '#about' },
     { name: 'قائمة الطعام', href: '#menu' },
     { name: 'الفروع', href: '#branches' },
-    { name: 'معرض الصور', href: '#gallery' },
     { name: 'تواصل معنا', href: '#contact' }
   ];
 
@@ -69,6 +115,7 @@ export function Header() {
           {/* Logo */}
           <motion.a
             href="#home"
+            onClick={(e) => handleClick(e, '#home')}
             initial={{ opacity: 0 }}
             animate={{ 
               opacity: 1,
@@ -98,10 +145,11 @@ export function Header() {
               <motion.a
                 key={item.name}
                 href={item.href}
+                onClick={(e) => handleClick(e, item.href)}
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 * index }}
-                className="text-gray-800 hover:text-red-700 transition-colors relative group text-lg"
+                className="text-gray-800 hover:text-red-700 transition-colors relative group text-lg cursor-pointer"
                 whileHover={{ scale: 1.1 }}
               >
                 {item.name}
@@ -131,11 +179,11 @@ export function Header() {
               <motion.a
                 key={item.name}
                 href={item.href}
+                onClick={(e) => handleClick(e, item.href)}
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.1 * index }}
-                className="block px-6 py-4 text-white hover:bg-white/20 transition-colors border-b border-white/10 last:border-b-0 text-lg"
-                onClick={() => setIsOpen(false)}
+                className="block px-6 py-4 text-white hover:bg-white/20 transition-colors border-b border-white/10 last:border-b-0 text-lg cursor-pointer"
               >
                 {item.name}
               </motion.a>

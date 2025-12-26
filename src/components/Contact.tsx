@@ -26,7 +26,7 @@ export function Contact() {
     {
       icon: Clock,
       title: 'ساعات العمل',
-      info: 'يومياً من 12:00 ظهراً - 12:00 منتصف الليل'
+      info: 'السبت الى الخميس: 8:00 صباحاً حتى 1:00 صباحاً | الجمعة: 1:00 ظهراً حتى 1:00 صباحاً'
     }
   ];
 
@@ -106,38 +106,6 @@ export function Contact() {
             </motion.div>
           ))}
         </div>
-
-        {/* Map placeholder */}
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="mt-16 rounded-2xl overflow-hidden shadow-2xl h-96 bg-gray-200 relative"
-        >
-          {/* إطار بألوان العلم */}
-          <div className="absolute top-0 left-0 right-0 flex h-3 z-10">
-            <div className="flex-1 bg-red-700" />
-            <div className="flex-1 bg-white" />
-            <div className="flex-1 bg-black" />
-          </div>
-          
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3624.165982478744!2d46.68556431499849!3d24.713451884126!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e2f03528045cd85%3A0x13b3d2ae93b7d45e!2sKing%20Fahd%20Rd%2C%20Riyadh%20Saudi%20Arabia!5e0!3m2!1sen!2s!4v1639999999999!5m2!1sen!2s"
-            width="100%"
-            height="100%"
-            style={{ border: 0 }}
-            allowFullScreen
-            loading="lazy"
-            title="موقع المطعم"
-          ></iframe>
-          
-          {/* إطار سفلي بألوان العلم */}
-          <div className="absolute bottom-0 left-0 right-0 flex h-3 z-10">
-            <div className="flex-1 bg-black" />
-            <div className="flex-1 bg-white" />
-            <div className="flex-1 bg-red-700" />
-          </div>
-        </motion.div>
       </div>
     </section>
   );

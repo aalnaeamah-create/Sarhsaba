@@ -1,5 +1,5 @@
 import { motion } from 'motion/react';
-import { ChevronDown, Sparkles, UtensilsCrossed } from 'lucide-react';
+import { ChevronDown } from 'lucide-react';
 
 interface HeroProps {
   heroImage: string;
@@ -75,115 +75,6 @@ export function Hero({ heroImage }: HeroProps) {
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-red-700 via-white to-black opacity-80" />
         <div className="absolute bottom-0 left-0 right-0 h-2 bg-gradient-to-r from-black via-white to-red-700 opacity-80" />
-      </div>
-
-      {/* Content */}
-      <div className="relative z-10 text-center text-white px-4 max-w-5xl mx-auto">
-        {/* أيقونة مميزة */}
-        <motion.div
-          initial={{ opacity: 0, y: -50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="mb-6"
-        >
-          <motion.div
-            animate={{ 
-              rotate: [0, 5, 0, -5, 0],
-            }}
-            transition={{ 
-              duration: 3,
-              repeat: Infinity,
-              ease: "easeInOut"
-            }}
-            className="inline-block"
-          >
-            <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-r from-red-700 to-white blur-2xl opacity-50" />
-              <UtensilsCrossed className="relative text-white" size={60} />
-            </div>
-          </motion.div>
-        </motion.div>
-
-        {/* العنوان الرئيسي */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.5, rotateX: -90 }}
-          animate={{ opacity: 1, scale: 1, rotateX: 0 }}
-          transition={{ duration: 1, ease: "easeOut" }}
-          className="mb-8"
-        >
-          {/* تم حذف العنوان الرئيسي */}
-        </motion.div>
-        
-        {/* الوصف */}
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-          className="mb-10"
-        >
-          <div className="relative inline-block">
-            <Sparkles className="absolute -top-6 -right-6 text-yellow-400" size={24} />
-            <Sparkles className="absolute -bottom-6 -left-6 text-yellow-400" size={20} />
-            <p className="text-xl md:text-3xl leading-relaxed max-w-3xl mx-auto drop-shadow-2xl px-6 py-4 bg-black/30 rounded-xl backdrop-blur-sm border border-white/20">
-              نقدم لكم أشهى المأكولات اليمنية الأصيلة
-              <br />
-              <span className="text-red-400">بنكهات غنية وتراث عريق في قلب الرياض</span>
-            </p>
-          </div>
-        </motion.div>
-
-        {/* الأزرار */}
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.5 }}
-          className="flex flex-col sm:flex-row gap-6 justify-center items-center"
-        >
-          <motion.a
-            href="#menu"
-            whileHover={{ 
-              scale: 1.1,
-              boxShadow: "0 20px 40px rgba(206, 17, 38, 0.6)"
-            }}
-            whileTap={{ scale: 0.95 }}
-            className="group relative bg-gradient-to-r from-red-700 via-red-600 to-red-700 text-white px-10 py-5 rounded-full overflow-hidden shadow-2xl border-2 border-white/50 backdrop-blur-sm"
-          >
-            <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/30 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
-            <span className="relative flex items-center gap-3 text-lg">
-              <UtensilsCrossed size={24} />
-              استكشف قائمة الطعام
-            </span>
-          </motion.a>
-
-          <motion.a
-            href="#contact"
-            whileHover={{ 
-              scale: 1.1,
-              boxShadow: "0 20px 40px rgba(255, 255, 255, 0.3)"
-            }}
-            whileTap={{ scale: 0.95 }}
-            className="group relative bg-gradient-to-r from-white/20 to-white/10 text-white px-10 py-5 rounded-full overflow-hidden shadow-2xl border-2 border-white backdrop-blur-sm"
-          >
-            <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
-            <span className="relative flex items-center gap-3 text-lg">
-              تواصل معنا
-            </span>
-          </motion.a>
-        </motion.div>
-
-        {/* شعار أو Badge */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, delay: 0.7 }}
-          className="mt-12"
-        >
-          <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md px-6 py-3 rounded-full border border-white/30">
-            <Sparkles className="text-yellow-400" size={20} />
-            <span className="text-white text-sm">تجربة طعام أصيلة لا تُنسى</span>
-            <Sparkles className="text-yellow-400" size={20} />
-          </div>
-        </motion.div>
       </div>
 
       {/* Scroll Indicator - محسّن */}
