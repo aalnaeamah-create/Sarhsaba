@@ -37,6 +37,7 @@ export function About({ aboutImage }: AboutProps) {
               src={aboutImage}
               alt="عن مطعم صرح سبأ"
               className="relative w-full h-[500px] object-cover rounded-lg shadow-2xl transform group-hover:scale-[1.02] transition-transform duration-500"
+              loading="lazy"
             />
             {/* إطار زخرفي */}
             <div className="absolute -top-6 -right-6 w-24 h-24 border-t-4 border-r-4 border-red-700 rounded-tr-3xl" />

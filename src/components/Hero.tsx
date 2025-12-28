@@ -36,16 +36,17 @@ export function Hero({ heroImage }: HeroProps) {
         <AnimatePresence mode="wait">
           <motion.div
             key={currentImageIndex}
-            initial={{ opacity: 0, scale: 1.1 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.95 }}
-            transition={{ duration: 1.5 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 1 }}
             className="absolute inset-0"
           >
             <img
               src={bannerImages[currentImageIndex]}
               alt={`مطعم صرح سبأ - صورة ${currentImageIndex + 1}`}
               className="w-full h-full object-cover"
+              loading="eager"
             />
           </motion.div>
         </AnimatePresence>
@@ -53,7 +54,7 @@ export function Hero({ heroImage }: HeroProps) {
         {/* تدرج لوني بألوان العلم اليمني */}
         <div className="absolute inset-0 bg-gradient-to-br from-red-700/80 via-black/60 to-black/90" />
         
-        {/* عناصر زخرفية متحركة */}
+        {/* عناصر زخرفية متحركة - مخفية على الموبايل */}
         <motion.div
           animate={{ 
             rotate: 360,
@@ -64,7 +65,7 @@ export function Hero({ heroImage }: HeroProps) {
             repeat: Infinity,
             ease: "linear"
           }}
-          className="absolute top-20 right-20 w-32 h-32 border-4 border-red-700/30 rounded-full"
+          className="hidden md:block absolute top-20 right-20 w-32 h-32 border-4 border-red-700/30 rounded-full"
         />
         <motion.div
           animate={{ 
@@ -76,10 +77,10 @@ export function Hero({ heroImage }: HeroProps) {
             repeat: Infinity,
             ease: "linear"
           }}
-          className="absolute bottom-32 left-20 w-40 h-40 border-4 border-white/20 rounded-full"
+          className="hidden md:block absolute bottom-32 left-20 w-40 h-40 border-4 border-white/20 rounded-full"
         />
         
-        {/* نقاط متلألئة */}
+        {/* نقاط متلألئة - مخفية على الموبايل */}
         {[...Array(5)].map((_, i) => (
           <motion.div
             key={i}
@@ -92,7 +93,7 @@ export function Hero({ heroImage }: HeroProps) {
               repeat: Infinity,
               delay: i * 0.4
             }}
-            className="absolute w-2 h-2 bg-white rounded-full"
+            className="hidden md:block absolute w-2 h-2 bg-white rounded-full"
             style={{
               top: `${20 + i * 15}%`,
               left: `${10 + i * 20}%`

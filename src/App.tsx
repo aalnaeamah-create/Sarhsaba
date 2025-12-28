@@ -2,10 +2,24 @@ import { Header } from './components/Header';
 import { Footer } from './components/Footer';
 import { CookieConsent } from './components/CookieConsent';
 import { ScrollToTop } from './components/ScrollToTop';
-import { Home } from './pages/Home';
-import { AllBranchesPage } from './pages/AllBranchesPage';
-import { AllMenuPage } from './pages/AllMenuPage';
-import { useState } from 'react';
+import { lazy, Suspense, useState } from 'react';
+
+// Lazy loading للصفحات لتحسين الأداء
+const Home = lazy(() => import('./pages/Home').then(module => ({ default: module.Home })));
+const AllBranchesPage = lazy(() => import('./pages/AllBranchesPage').then(module => ({ default: module.AllBranchesPage })));
+const AllMenuPage = lazy(() => import('./pages/AllMenuPage').then(module => ({ default: module.AllMenuPage })));
+
+// مكون Loading بسيط
+function PageLoader() {
+  return (
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-b from-white to-gray-50">
+      <div className="text-center">
+        <div className="inline-block w-16 h-16 border-4 border-red-700 border-t-transparent rounded-full animate-spin mb-4"></div>
+        <p className="text-gray-600">جاري التحميل...</p>
+      </div>
+    </div>
+  );
+}
 
 export default function App() {
   // نظام التنقل بين الصفحات
@@ -33,9 +47,11 @@ export default function App() {
   return (
     <div className="font-sans" dir="rtl">
       <Header onNavigate={handleNavigation} currentPage={currentPage} />
-      <main>
-        {renderPage()}
-      </main>
+      <Suspense fallback={<PageLoader />}>
+        <main>
+          {renderPage()}
+        </main>
+      </Suspense>
       <Footer />
       <CookieConsent />
       <ScrollToTop />

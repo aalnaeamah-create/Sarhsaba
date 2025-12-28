@@ -1,7 +1,6 @@
 import { motion } from 'motion/react';
 import { Menu, X, Search } from 'lucide-react';
 import { useState, useEffect } from 'react';
-import logo from 'figma:asset/6775a004a4f89ac27b8782135b366270ba0ccb49.png';
 import { SearchDialog } from './SearchDialog';
 
 interface HeaderProps {
@@ -13,6 +12,9 @@ export function Header({ onNavigate, currentPage = 'home' }: HeaderProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
+  
+  // الشعار من Google Drive
+  const logo = "https://lh3.googleusercontent.com/d/1QfoDJJ56q9qvULYwy5zD1RmNRpM_sFCC";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -78,14 +80,8 @@ export function Header({ onNavigate, currentPage = 'home' }: HeaderProps) {
 
   return (
     <motion.header
-      initial={{ y: -100 }}
-      animate={{ 
-        y: 0,
-      }}
-      transition={{ 
-        y: { type: 'spring', stiffness: 300, damping: 30 },
-      }}
-      className={`fixed top-0 left-0 right-0 w-full shadow-lg z-[9999] overflow-hidden transition-shadow duration-300 ${
+      initial={{ y: 0, opacity: 1 }}
+      className={`fixed top-0 left-0 right-0 w-full shadow-lg z-[9999] overflow-hidden transition-all duration-300 ${
         scrolled ? 'shadow-2xl shadow-red-700/10' : 'shadow-lg'
       }`}
       style={{

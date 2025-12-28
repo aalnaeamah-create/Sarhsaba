@@ -1,8 +1,10 @@
 import { motion } from 'motion/react';
 import { Facebook, Instagram, Twitter, MapPin, Phone, Mail } from 'lucide-react';
-import logo from 'figma:asset/fe584b35651f95e63f3418e4e13c3097e38311ce.png';
 
 export function Footer() {
+  // الشعار من Google Drive
+  const logo = "https://lh3.googleusercontent.com/d/1iZ9dxknTtpSsJXxTsUHFu-6J2xVVulc4";
+  
   return (
     <footer className="bg-gradient-to-b from-black via-gray-900 to-black text-white py-12 relative overflow-hidden">
       {/* شريط بألوان العلم اليمني في الأعلى */}
