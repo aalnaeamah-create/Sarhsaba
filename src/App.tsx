@@ -2,6 +2,7 @@ import { Header } from './components/Header';
 import { Footer } from './components/Footer';
 import { CookieConsent } from './components/CookieConsent';
 import { ScrollToTop } from './components/ScrollToTop';
+import { SEO } from './components/SEO';
 import { lazy, Suspense, useState } from 'react';
 
 // Lazy loading للصفحات لتحسين الأداء
@@ -55,6 +56,7 @@ export default function App() {
       <Footer />
       <CookieConsent />
       <ScrollToTop />
+      <SEO />
     </div>
   );
 }
